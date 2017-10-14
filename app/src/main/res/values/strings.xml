@@ -3,4 +3,6 @@
     <string name="btnSend">Send</string>
     <string name="btnEditMessage">Edit Message</string>
     <string name="hello_world" />
+    <string name="btnDone">Done</string>
+    <string name="tvEditMessage" />
 </resources>
