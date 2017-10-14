@@ -18,7 +18,7 @@ public class TestExplements extends Activity {
 
     private String message = "";
     private String phone = "";
-
+    public static final int NEW_MESSAGE_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +68,7 @@ public class TestExplements extends Activity {
         public void onClick(View v) {
 
 
+
             Log.i(CLASS_TAG,"onClick started...");
 
             // Example of an EXPLICIT intent, as we are naming the java class to use
@@ -82,10 +83,35 @@ public class TestExplements extends Activity {
 
             editIntent.putExtra("CURRENT_MESSAGE", TestExplements.this.message);
 
-            startActivity(editIntent);
+//            startActivity(editIntent);
+            startActivityForResult(editIntent, NEW_MESSAGE_REQUEST);
+
+
+
+
         }
     }
-}	
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Check which request we're responding to
+        if (requestCode == NEW_MESSAGE_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                String newMessage = (String) (data.getStringExtra("NEW_MESSAGE"));
+                message = newMessage;
+                setSummary();
+
+            }
+
+        }
+    }
+
+
+
+}
 
 
 
