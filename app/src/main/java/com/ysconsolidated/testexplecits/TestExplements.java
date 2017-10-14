@@ -45,7 +45,17 @@ public class TestExplements extends Activity {
         btnEditMessage.setOnClickListener(buttonEditMessageOnClick);
 
 
+        //editToSend
+
+        Button btnEditToSend;
+        btnEditToSend = (Button) this.findViewById(R.id.etToSend);
+        HandleButtonEditToSendOnClick buttonEditToSendOnClick;
+        buttonEditToSendOnClick = new HandleButtonEditToSendOnClick();
+        btnEditToSend.setOnClickListener(buttonEditToSendOnClick);
+
+
     }
+
 
     private void setSummary() {
         StringBuilder summary;
@@ -55,6 +65,10 @@ public class TestExplements extends Activity {
         summary.append("\n\nMessage:\n");
         summary.append(message);
         TextView tvMessageDetails = (TextView) findViewById(R.id.tvMessageDetails);
+        // edit to send //
+        TextView tvMPhoneDetails = (TextView) findViewById(R.id.tvMessageDetails);
+        tvMPhoneDetails.setText(summary);
+            //Edit to send //
         tvMessageDetails.setText(summary);
     }
 
@@ -85,7 +99,41 @@ public class TestExplements extends Activity {
             startActivity(editIntent);
         }
     }
-}	
+
+
+
+
+    /// EDIT TO SEND //
+
+    @SuppressWarnings("rawtypes")
+    public  class  HandleButtonEditToSendOnClick implements View.OnClickListener{
+
+        public static final int NEW_MESSAGE_REQUEST = 1;
+        @Override
+        public void onClick(View view) {
+
+            Log.i(CLASS_TAG,"onClick started...");
+
+            Intent editIntent;
+            Activity sourceActivity;
+            Class destinationClass;
+
+            sourceActivity = TestExplements.this;
+            destinationClass = EditSendTo.class;
+            editIntent = new Intent(sourceActivity, destinationClass);
+            editIntent.putExtra("CURRENT_MESSAGE", TestExplements.this.message);
+
+            startActivity(editIntent);
+
+        }
+    }
+
+
+    // Edit TO SEND
+
+
+
+        }
 
 
 

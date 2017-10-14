@@ -5,4 +5,7 @@
     <string name="hello_world" />
     <string name="btnDone">Done</string>
     <string name="tvEditMessage" />
+    <string name="btnDoneEditToSend">Done</string>
+    <string name="tvPhoneNumber">Entre Phone Number</string>
+    <string name="etToSendBtn">Edit To Send</string>
 </resources>
