@@ -19,7 +19,7 @@ public class EditToSend extends Activity {
 
         editIntent = this.getIntent();
         String theNumber;
-        theNumber = editIntent.getStringExtra("CURRENT_MESSAGE");
+        theNumber = editIntent.getStringExtra("CURRENT_PHONE");
         etPhoneNumber = (EditText) findViewById(R.id.phoneNumberTextView);
         etPhoneNumber.setText(theNumber);
 
@@ -35,7 +35,7 @@ public class EditToSend extends Activity {
         public void onClick(View view) {
 
             Intent intent = new Intent();
-            intent.putExtra("NEW_MESSAGE" , ((EditText) findViewById(R.id.phoneNumberTextView)).getText().toString());
+            intent.putExtra("NEW_PHONE" , ((EditText) findViewById(R.id.phoneNumberTextView)).getText().toString());
             setResult(RESULT_OK,intent);
             finish();
 

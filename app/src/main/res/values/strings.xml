@@ -7,4 +7,5 @@
     <string name="tvEditMessage" />
     <string name="btnEditToSendDone">Done</string>
     <string name="entrePhone">Entre Phone</string>
+    <string name="etToSend">Edit To Send</string>
 </resources>
