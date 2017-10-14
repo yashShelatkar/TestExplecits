@@ -19,7 +19,7 @@ public class TestExplements extends Activity {
     private String message = "";
     private String phone = "";
     public static final int NEW_MESSAGE_REQUEST = 1;
-    public static final int NEW_PHONE_REQUEST = 1;
+    public static final int NEW_PHONE_REQUEST = 2;
 
 
     @Override
@@ -109,11 +109,11 @@ public class TestExplements extends Activity {
     }
 
     // EDIT TO SEND
-
+        @SuppressWarnings("rawtypes")
 
     public  class  HandleButtonEditToSendOnClick implements View.OnClickListener{
 
-        public static final int NEW_PHONE_REQUEST = 1;
+        public static final int NEW_PHONE_REQUEST = 2;
         @Override
         public void onClick(View view) {
 
