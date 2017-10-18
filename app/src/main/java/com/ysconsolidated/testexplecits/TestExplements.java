@@ -4,13 +4,18 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.net.URI;
 
 public class TestExplements extends Activity {
 
@@ -37,6 +42,30 @@ public class TestExplements extends Activity {
         message ="Is it St. Patricks Day?";
         phone = "0451590994";
         setSummary();
+
+        Button btnSend;
+
+        btnSend = (Button)this.findViewById(R.id.btnSend);
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent sendSmsIntent;
+//
+//                Uri uri =Uri.parse("smsto:" + phone);
+//                sendSmsIntent = new Intent(Intent.ACTION_SENDTO , uri);
+//
+//                sendSmsIntent.putExtra("sms body" , message);
+//
+//                startActivity(sendSmsIntent);
+
+
+                SmsManager smsManager = SmsManager.getDefault();
+                smsManager.sendTextMessage(phone, null, message, null, null);
+                Toast.makeText(getApplicationContext(),  "SMS Sent to " + phone, Toast.LENGTH_LONG).show();
+
+
+            }
+        });
 
         // Responding to an event - the onClick for the Edit Message Button
         // Using a named inner class
